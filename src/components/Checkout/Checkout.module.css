@@ -1,3 +1,20 @@
 .checkout {
-                                                                        
+    display: flex;
+}
+
+.cardSection {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin: 30px;
+}
+
+.payment {
+    margin-top: 40px;
+}
+
+.payment > button {
+    color: white;
+    background-color: red;
+    border: 2px solid black;
 }

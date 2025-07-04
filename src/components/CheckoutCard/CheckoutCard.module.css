@@ -1,4 +1,14 @@
 .card {
     border: 2px solid black;
+    width: 40%;
+    padding: 16px;
+    flex: 1;
+}
 
+.title {
+    font-size: 2em;
+}
+
+.price {
+    font-size: 1.3em;
 }

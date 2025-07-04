@@ -5,7 +5,7 @@ import Header from '../Header/Header';
 import { useOutletContext } from 'react-router-dom';
 
 export default function Products() {
-    const { setCartItems } = useOutletContext();
+    const { cartItems, setCartItems } = useOutletContext();
     const [fakes, setFakes] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -35,7 +35,6 @@ export default function Products() {
 
     return (
     <>
-    <button onClick={handleClick}>Click me</button>
     <div className={styles.productsContainer}>
         {fakes.map((product) => {
             return <Card
@@ -45,6 +44,7 @@ export default function Products() {
                 image={product.image}
                 price={`$${product.price}`}
                 rating={`${product.rating.rate}/5 (${product.rating.count} reviews)`}
+                cartItems={cartItems}
                 setCartItems={setCartItems}
             />
         })}

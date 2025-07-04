@@ -7,9 +7,12 @@ export default function Checkout() {
 
     return (
         <div className={styles.checkout}>
-            {cartItems.map((item) => {
-                return <CheckoutCard name={item.name} price={item.price}/>
-            })}
+            <div className={styles.cardSection}>
+                {cartItems.map((item) => {
+                    return <CheckoutCard title={item.title} price={item.price}/>
+                })}
+            </div>
+            <div className={styles.payment}><button>Pay now</button></div>
         </div>
     )
 }

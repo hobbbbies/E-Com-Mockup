@@ -3,13 +3,23 @@ import styles from "./Card.module.css";
 export default function Card({title, description, image, price, rating, cartItems, setCartItems}) {
     
     const handleAdd = () => {
-        const item = { name: title, price: price};
+        const item = { title: title, price: price};
         setCartItems(prevItems => [...prevItems, item]);
     }
 
     const handleRemove = () => {
-        const newItems = cartItems.filter(entry => JSON.stringify(entry) === JSON.stringify({ title, price}));
-        setCartItems(newItems);               
+                console.log(cartItems);
+
+        const index = cartItems.findIndex(item => 
+            item.title === title && item.price === price
+        );
+        
+        if (index !== -1) {
+            const newItems = [...cartItems];
+            newItems.splice(index, 1);
+            console.log(newItems);
+            setCartItems(newItems);
+        }
     }
    
     return (
@@ -24,7 +34,7 @@ export default function Card({title, description, image, price, rating, cartItem
             </div>
             <div className={styles.buttonGroup}>
                 <button onClick={handleAdd}>+</button>
-                <button onClick={(handleRemove)}>-</button>
+                <button onClick={handleRemove}>-</button>
             </div>
         </div>
     )
