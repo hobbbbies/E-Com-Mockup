@@ -19,3 +19,20 @@
     align-self: center;
     justify-self: center;
 }
+
+.buttonGroup {
+    margin: 8px;
+}
+
+.buttonGroup > * {
+    border: 1px solid black;
+    border-radius: 0;
+}
+
+.buttonGroup > *:hover {
+    background-color: rgb(255, 109, 109);
+}
+
+.buttonGroup > *:last-child {
+    border-left: 0;
+}

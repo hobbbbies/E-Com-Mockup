@@ -29,11 +29,6 @@ export default function Products() {
             });
     }, []);
 
-    const handleClick = () => {
-        const item = { name: 'shirt', price: "10"};
-        setCartItems(prevItems => [...prevItems, item]);
-    }
-
     if (loading) return <div>Loading products...</div>;
     if (error) return <div>Error loading products: {error}</div>;
     if (fakes.length === 0) return <div>No products found</div>;
@@ -50,6 +45,7 @@ export default function Products() {
                 image={product.image}
                 price={`$${product.price}`}
                 rating={`${product.rating.rate}/5 (${product.rating.count} reviews)`}
+                setCartItems={setCartItems}
             />
         })}
     </div>
